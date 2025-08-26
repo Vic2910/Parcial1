@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de Películas y Series</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        h1 {
+            color: var(--secondary-color);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .media-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .media-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .media-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--primary-color);
+        }
+        
+        .media-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .media-title {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .media-title i {
+            margin-right: 12px;
+            color: var(--primary-color);
+        }
+        
+        .media-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .media-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .rating {
+            color: #f39c12;
+            font-weight: bold;
+        }
+        
+        .media-link {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+        
+        .media-link:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+        
+        .back-button {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+            border: none;
+            cursor: pointer;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .back-button:hover {
+            background: var(--dark-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: white;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .media-card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-film"></i> Catálogo de Películas y Series</h1>
+            <p class="subtitle">Explora nuestra selección de contenido cinematográfico y series de televisión más destacadas</p>
+        </header>
+        
+        <div class="media-grid">
+            <div class="media-card">
+                <img src="/media/Stranger_Things_logo.png" alt="Stranger Things" class="media-image">
+                <div class="media-content">
+                    <h3 class="media-title"><i class="fas fa-dragon"></i> Stranger Things</h3>
+                    <p class="media-description">Cuando un niño desaparece, una pequeña villa descubre un misterio que involucra experimentos secretos, fuerzas sobrenaturales y una niña muy especial.</p>
+                    <div class="media-meta">
+                        <span class="rating"><i class="fas fa-star"></i> 8.7/10</span>
+                        <span>4 Temporadas</span>
+                    </div>
+                    <a href="stranger_things.html" class="media-link">Ver detalles</a>
+                </div>
+            </div>
+            
+            <div class="media-card">
+                <img src="/media/images.jpg" alt="Breaking Bad" class="media-image">
+                <div class="media-content">
+                    <h3 class="media-title"><i class="fas fa-flask"></i> Breaking Bad</h3>
+                    <p class="media-description">Un profesor de química con cáncer terminal se asocia a un exestudiante para asegurar el futuro de su familia al fabricar y vender metanfetamina.</p>
+                    <div class="media-meta">
+                        <span class="rating"><i class="fas fa-star"></i> 9.5/10</span>
+                        <span>5 Temporadas</span>
+                    </div>
+                    <a href="breaking_bad.html" class="media-link">Ver detalles</a>
+                </div>
+            </div>
+            
+            <div class="media-card">
+                <img src="/media/images (1).jpg" alt="Game of Thrones" class="media-image">
+                <div class="media-content">
+                    <h3 class="media-title"><i class="fas fa-crown"></i> Juego de Tronos</h3>
+                    <p class="media-description">Nueve familias nobles luchan por el control de las tierras de Poniente, mientras un antiguo regreso de un enemigo olvidado después de milenios.</p>
+                    <div class="media-meta">
+                        <span class="rating"><i class="fas fa-star"></i> 9.2/10</span>
+                        <span>8 Temporadas</span>
+                    </div>
+                    <a href="game_of_thrones.html" class="media-link">Ver detalles</a>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="/index.html" class="back-button"><i class="fas fa-arrow-left"></i> Volver al Inicio</a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Catálogo de Películas y Series - Universidad Católica de El Salvador</p>
+        </div>
+    </div>
+</body>
+</html>
